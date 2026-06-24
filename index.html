@@ -49,6 +49,7 @@
     .btn-p:hover { background: var(--teal-lt); box-shadow: 0 0 20px rgba(58,173,169,.45); transform: translateY(-1px); }
     .btn-o  { background: transparent; color: var(--text); border-color: rgba(58,173,169,.4); }
     .btn-o:hover { border-color: var(--teal); background: rgba(58,173,169,.08); }
+    .lang-btn { min-width: 90px; padding: .5rem 1rem; font-size: .8rem; letter-spacing: .05em; }
     .btn-lg { padding: .9rem 2.2rem; font-size: 1rem; }
     .btn-wa {
       display: flex; align-items: center; justify-content: center; gap: .5rem;
@@ -540,7 +541,8 @@
       <li><a href="#delivery">Delivery</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="#products" class="btn btn-p nav-cta"> Shop Now</a>
+    <a href="#products" class="btn btn-p nav-cta" data-i18n="shopNow"> Shop Now</a>
+    
     <button class="cart-btn" id="cartBtn">
       &#128722;
       <span class="cart-count" id="cartCount" style="display:none;">0</span>
@@ -554,6 +556,8 @@
     <a href="#delivery">Delivery</a>
     <a href="#contact">Contact</a>
     <a href="#products" class="btn btn-p">&#128722; Shop Now</a>
+    
+
   </div>
 </nav>
 
@@ -565,8 +569,61 @@
 
   <div class="hero-wrap">
     <div class="hero-left">
-      <h1 class="hero-h1">Dominate<br><span class="grad">Your Game</span></h1>
-      <p class="hero-p">Premium gaming peripherals and PC accessories, delivered fast across Jordan. Built for casual gamers, esports pros, and PC enthusiasts alike.</p>
+      <h1 class="hero-h1">Pc Shark<br><span class="grad">Store Jo.</span></h1>
+     
+</a>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+
+ <button onclick="window.open('https://www.instagram.com/pcshark.jo/', '_blank')"
+style="
+background: linear-gradient(45deg, #0570ad, #0c272c);
+color: white;
+border: none;
+border-radius: 8px;
+padding: 12px 24px;
+font-size: 16px;
+font-family: 'Orbitron', sans-serif;
+font-weight: 600;
+cursor: pointer;
+box-shadow: 0 0 15px rgba(5, 146, 240, 0.5);
+transition: all 0.3s ease;
+animation: glow 2s infinite;
+"
+onmouseover="
+this.style.transform='scale(1.05)';
+this.style.boxShadow='0 0 25px rgba(255,0,255,0.8)';
+"
+onmouseout="
+this.style.transform='scale(1)';
+this.style.boxShadow='0 0 15px rgba(255,0,255,0.5)';
+"
+onmousedown="
+this.style.transform='scale(0.95)';
+"
+onmouseup="
+this.style.transform='scale(1.05)';
+">
+     VISIT OUR INSTAGRAM
+</button>
+
+<style>
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(4, 191, 224, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 25px rgb(4, 198, 233);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(4, 130, 233, 0.5);
+    }
+}
+</style>
+
+      <p class="hero-p">Premium gaming peripherals and PC accessories, delivered fast across Jordan.</p>
+     
+    
+</a>
       <div class="hero-btns">
         <a href="#products" class="btn btn-p btn-lg">Shop Now &#8594;</a>
         <a href="#categories" class="btn btn-o btn-lg">Browse Categories</a>

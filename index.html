@@ -555,7 +555,7 @@
     <a href="#categories">Categories</a>
     <a href="#delivery">Delivery</a>
     <a href="#contact">Contact</a>
-    
+    <a href="#products" class="btn btn-p">&#128722; Shop Now</a>
     
 
   </div>
@@ -749,7 +749,7 @@ this.style.transform='scale(1.05)';
 
       <div class="prod-card">
         <div class="prod-img">
-          <img src="https://gameakjo.com/cdn/shop/files/0.1_1.webp?v=1758966111&width=800" alt="ATTACK SHARK X68 HE Wireless Keyboard" style="width:100%;height:100%;object-fit:cover;">
+          <img src="https://gameakjo.com/cdn/shop/files/0.1_1.webp?v=1758966111&width=800" alt="ATTACK SHARK X68 HE" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="prod-body">
           <span class="pcat">Keyboards</span>
@@ -770,14 +770,14 @@ this.style.transform='scale(1.05)';
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (8)</span></div>
           <div class="pfooter">
             <span class="pprice">39.99 JOD</span>
-            <button onclick="addToCart('ATTACK SHARK X68 HE Wireless Keyboard', 39.99)" class="btn-add">&#43; Add</button>
+            <button onclick="addToCart('ATTACK SHARK X68 HE', 39.99)" class="btn-add">&#43; Add</button>
           </div>
         </div>
       </div>
 
       <div class="prod-card">
         <div class="prod-img">
-          <img src="https://attackshark.co.uk/cdn/shop/files/08_124c2ed9-35a7-4eef-8a06-53b081fb3625.jpg?v=1752039873" alt="ATTACK SHARK X68 HE Wireless Keyboard" style="width:100%;height:100%;object-fit:cover;">
+          <img src="https://attackshark.co.uk/cdn/shop/files/08_124c2ed9-35a7-4eef-8a06-53b081fb3625.jpg?v=1752039873" alt="ATTACK SHARK X68 HE" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="prod-body">
           <span class="pcat">Keyboards</span>
@@ -798,7 +798,7 @@ this.style.transform='scale(1.05)';
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (8)</span></div>
           <div class="pfooter">
             <span class="pprice">39.99 JOD</span>
-            <button onclick="addToCart('ATTACK SHARK X68 HE Wireless Keyboard', 39.99)" class="btn-add">&#43; Add</button>
+            <button onclick="addToCart('ATTACK SHARK X68 HE', 39.99)" class="btn-add">&#43; Add</button>
           </div>
         </div>
       </div>
@@ -1396,7 +1396,7 @@ function showDeliveryOptions(method, items, total) {
         onmouseout="this.style.borderColor='#2a3247'"
       >
         <span style="font-size: 36px;">📍</span>
-        <span style="font-size: 15px; font-weight: bold;">Inside Amman</span>
+        <span style="font-size: 15px; font-weight: bold;">Inside Amman 3 JD</span>
         <span style="font-size: 12px; color: #aaa;">داخل عمان</span>
       </button>
 
@@ -1410,7 +1410,7 @@ function showDeliveryOptions(method, items, total) {
         onmouseout="this.style.borderColor='#2a3247'"
       >
         <span style="font-size: 36px;">🗺️</span>
-        <span style="font-size: 15px; font-weight: bold;">Outside Amman</span>
+        <span style="font-size: 15px; font-weight: bold;">Outside Amman 5 JD</span>
         <span style="font-size: 12px; color: #aaa;">خارج عمان</span>
       </button>
 
@@ -1436,25 +1436,40 @@ function showDeliveryOptions(method, items, total) {
 }
 
 function sendOrder(method, items, total, delivery) {
+  // سعر التوصيل
+  let deliveryPrice = 0;
+  if (delivery === 'Inside Amman') {
+    deliveryPrice = 3;
+  } else if (delivery === 'Outside Amman') {
+    deliveryPrice = 5;
+  }
+
+  const grandTotal = (parseFloat(total) + deliveryPrice).toFixed(2);
+
+  // التوصيل بالعربي
+  const deliveryAr = delivery === 'Inside Amman' ? 'داخل عمان' : 'خارج عمان';
+
   if (method === 'cash') {
     const message = encodeURIComponent(
-      'I want to order: ' + items +
-      '. Total: ' + total + ' JOD.' +
-      ' Payment method: Cash on Delivery.' +
-      ' Delivery: ' + delivery
+      'طلب جديد: ' + items + '\n' +
+      'السعر: ' + total + ' دينار.' + '\n' +
+      'رسوم التوصيل (' + deliveryAr + '): ' + deliveryPrice + ' دينار.' + '\n' +
+      'الإجمالي: ' + grandTotal + ' دينار.' + '\n' +
+      'طريقة الدفع: الدفع عند الاستلام.'
     );
     window.open('https://wa.me/962797388854?text=' + message, '_blank');
 
   } else if (method === 'cliq') {
     const message = encodeURIComponent(
-      'I want to order: ' + items +
-      '. Total: ' + total + ' JOD.' +
-      ' Payment method: CLIQ.' +
-      ' Delivery: ' + delivery +
-      ' I will send the payment receipt now.'
+      'طلب جديد: ' + items + '\n' +
+      'السعر: ' + total + ' دينار.' + '\n' +
+      'رسوم التوصيل (' + deliveryAr + '): ' + deliveryPrice + ' دينار.' + '\n' +
+      'الإجمالي: ' + grandTotal + ' دينار.' + '\n' +
+      'طريقة الدفع: CLIQ.' + '\n' +
+      'سيتم إرسال إيصال الدفع.'
     );
     window.open('https://wa.me/962797388854?text=' + message, '_blank');
-    alert('WhatsApp opened. Please send your CLIQ payment receipt to confirm your order.');
+    alert('تم فتح واتساب. يرجى إرسال إيصال الدفع لتأكيد طلبك.');
   }
 }
     
@@ -1493,4 +1508,3 @@ function sendOrder(method, items, total, delivery) {
 </script>
 </body>
 </html>
-

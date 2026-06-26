@@ -576,8 +576,8 @@
 
  <button onclick="window.open('https://www.instagram.com/pcshark.jo/', '_blank')"
 style="
-background: linear-gradient(45deg, #1c3a4b, #0bb8d6);
-color: white;
+background: linear-gradient(45deg, #1bacb1, #09ebdf);
+color: rgb(0, 0, 0);
 border: none;
 border-radius: 8px;
 padding: 12px 24px;
@@ -603,7 +603,7 @@ this.style.transform='scale(0.95)';
 onmouseup="
 this.style.transform='scale(1.05)';
 ">
-     VISIT OUR INSTAGRAM
+      Instagram Page
 </button>
 
 <style>
@@ -1271,6 +1271,69 @@ this.style.transform='scale(1.05)';
     }
   });
 
+// Close cart when clicking inside the sidebar on mobile (on the edge/empty area)
+// ESC key to close
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    cartSidebar.classList.remove('open');
+    cartOverlay.classList.remove('open');
+  }
+});
+
+// Add a close button dynamically for mobile at the top of the sidebar
+function addMobileCloseBar() {
+  if (window.innerWidth <= 768) {
+    const existingBar = document.getElementById('mobileCloseBar');
+    if (!existingBar) {
+      const closeBar = document.createElement('div');
+      closeBar.id = 'mobileCloseBar';
+      closeBar.style.cssText = `
+        width: 100%;
+        padding: 14px 16px;
+        background: #1a1f2e;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #2a3247;
+        box-sizing: border-box;
+      `;
+
+      closeBar.innerHTML = `
+        <span style="color: #ffffff; font-size: 18px; font-weight: bold;">🛒 Your Cart</span>
+        <button id="mobileCloseBtn" style="
+          background: #232a3b;
+          border: 2px solid #2a3247;
+          color: #ffffff;
+          font-size: 20px;
+          width: 38px;
+          height: 38px;
+          border-radius: 8px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        ">&times;</button>
+      `;
+
+      // Insert at the very top of the sidebar
+      cartSidebar.insertBefore(closeBar, cartSidebar.firstChild);
+
+      document.getElementById('mobileCloseBtn').addEventListener('click', () => {
+        cartSidebar.classList.remove('open');
+        cartOverlay.classList.remove('open');
+      });
+    }
+  }
+}
+
+// Run on load and on resize
+addMobileCloseBar();
+window.addEventListener('resize', addMobileCloseBar);
+
+
+
+
+  
   // Payment Modal
   const paymentModal = document.getElementById('paymentModal');
   const paymentClose = document.getElementById('paymentClose');
@@ -1292,13 +1355,108 @@ this.style.transform='scale(1.05)';
     const items = cart.map(item => item.name + ' x' + item.qty).join(', ');
     
     if (method === 'cash') {
-      const message = encodeURIComponent('I want to order: ' + items + '. Total: ' + total + ' JOD. Payment method: Cash on Delivery');
-      window.open('https://wa.me/962797388854?text=' + message, '_blank');
-    } else if (method === 'cliq') {
-      const message = encodeURIComponent('I want to order: ' + items + '. Total: ' + total + ' JOD. Payment method: CLIQ. I will send the payment receipt now.');
-      window.open('https://wa.me/962797388854?text=' + message, '_blank');
-      alert('WhatsApp opened. Please send your CLIQ payment receipt to confirm your order.');
-    }
+  showDeliveryOptions('cash', items, total);
+} else if (method === 'cliq') {
+  showDeliveryOptions('cliq', items, total);
+}
+
+function showDeliveryOptions(method, items, total) {
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7); z-index: 1000;
+    display: flex; align-items: center; justify-content: center;
+    font-family: Arial, sans-serif;
+  `;
+
+  const popup = document.createElement('div');
+  popup.style.cssText = `
+    background: #1a1f2e; border-radius: 16px; padding: 30px;
+    width: 360px; text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  `;
+
+  popup.innerHTML = `
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+      <h2 style="color: #ffffff; font-size: 20px; margin: 0;">Select Delivery Location</h2>
+      <span id="closeDelivery" style="
+        color: #aaa; font-size: 22px; cursor: pointer; line-height: 1;
+      ">&times;</span>
+    </div>
+
+    <div style="display: flex; gap: 16px; justify-content: center;">
+
+      <button id="insideAmman" style="
+        background: #232a3b; border: 2px solid #2a3247;
+        border-radius: 12px; padding: 24px 16px; width: 150px;
+        color: white; cursor: pointer; transition: border-color 0.2s;
+        display: flex; flex-direction: column; align-items: center; gap: 10px;
+      "
+        onmouseover="this.style.borderColor='#00bfa5'"
+        onmouseout="this.style.borderColor='#2a3247'"
+      >
+        <span style="font-size: 36px;">📍</span>
+        <span style="font-size: 15px; font-weight: bold;">Inside Amman</span>
+        <span style="font-size: 12px; color: #aaa;">داخل عمان</span>
+      </button>
+
+      <button id="outsideAmman" style="
+        background: #232a3b; border: 2px solid #2a3247;
+        border-radius: 12px; padding: 24px 16px; width: 150px;
+        color: white; cursor: pointer; transition: border-color 0.2s;
+        display: flex; flex-direction: column; align-items: center; gap: 10px;
+      "
+        onmouseover="this.style.borderColor='#00bfa5'"
+        onmouseout="this.style.borderColor='#2a3247'"
+      >
+        <span style="font-size: 36px;">🗺️</span>
+        <span style="font-size: 15px; font-weight: bold;">Outside Amman</span>
+        <span style="font-size: 12px; color: #aaa;">خارج عمان</span>
+      </button>
+
+    </div>
+  `;
+
+  overlay.appendChild(popup);
+  document.body.appendChild(overlay);
+
+  document.getElementById('insideAmman').onclick = function () {
+    document.body.removeChild(overlay);
+    sendOrder(method, items, total, 'Inside Amman');
+  };
+
+  document.getElementById('outsideAmman').onclick = function () {
+    document.body.removeChild(overlay);
+    sendOrder(method, items, total, 'Outside Amman');
+  };
+
+  document.getElementById('closeDelivery').onclick = function () {
+    document.body.removeChild(overlay);
+  };
+}
+
+function sendOrder(method, items, total, delivery) {
+  if (method === 'cash') {
+    const message = encodeURIComponent(
+      'I want to order: ' + items +
+      '. Total: ' + total + ' JOD.' +
+      ' Payment method: Cash on Delivery.' +
+      ' Delivery: ' + delivery
+    );
+    window.open('https://wa.me/962797388854?text=' + message, '_blank');
+
+  } else if (method === 'cliq') {
+    const message = encodeURIComponent(
+      'I want to order: ' + items +
+      '. Total: ' + total + ' JOD.' +
+      ' Payment method: CLIQ.' +
+      ' Delivery: ' + delivery +
+      ' I will send the payment receipt now.'
+    );
+    window.open('https://wa.me/962797388854?text=' + message, '_blank');
+    alert('WhatsApp opened. Please send your CLIQ payment receipt to confirm your order.');
+  }
+}
     
     cart = [];
     updateCart();

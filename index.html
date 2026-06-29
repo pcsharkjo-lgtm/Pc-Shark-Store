@@ -50,6 +50,15 @@
     .btn-o  { background: transparent; color: var(--text); border-color: rgba(58,173,169,.4); }
     .btn-o:hover { border-color: var(--teal); background: rgba(58,173,169,.08); }
     .lang-btn { min-width: 90px; padding: .5rem 1rem; font-size: .8rem; letter-spacing: .05em; }
+    #langToggle {
+      background: transparent; color: var(--teal);
+      border: 1.5px solid var(--teal); border-radius: var(--r);
+      padding: .42rem 1rem; font-family: 'Rajdhani', sans-serif;
+      font-size: .82rem; font-weight: 700; letter-spacing: .08em;
+      cursor: pointer; transition: var(--tr); text-transform: uppercase;
+    }
+    #langToggle:hover { background: var(--teal); color: var(--bg); }
+    html[dir="rtl"] body { font-family: 'Segoe UI', Tahoma, Arial, sans-serif; }
     .btn-lg { padding: .9rem 2.2rem; font-size: 1rem; }
     .btn-wa {
       display: flex; align-items: center; justify-content: center; gap: .5rem;
@@ -543,6 +552,7 @@
     </ul>
     
     
+    <button id="langToggle" onclick="toggleLanguage()">AR</button>
     <button class="cart-btn" id="cartBtn">
       &#128722;
       <span class="cart-count" id="cartCount" style="display:none;">0</span>
@@ -905,7 +915,7 @@ this.style.transform='scale(1.05)';
             <div style="margin-top:.5rem; line-height:1.6;">
               • 20ms ultra-low latency<br>
               • Dual microphone system<br>
-              • Tri-Mode connection: Bluetooth 5.3/2.4Ghz/Wired<br>
+              • Tri-Mode connection:Bluetooth 5.3/2.4Ghz/Wired<br>
               • 203g Ultra-lightweight construction<br>
               • 2-in-1 Type C and USB A 2.4Ghz receiver<br>
               • 40mm speaker drivers and 300mAh large battery
@@ -930,12 +940,12 @@ this.style.transform='scale(1.05)';
           <details style="font-size:.73rem; color:var(--muted); cursor:pointer; margin:.5rem 0;">
             <summary style="cursor:pointer; color:var(--teal); font-weight:600;">Full Features</summary>
             <div style="margin-top:.5rem; line-height:1.6;">
-              • 20ms ultra-low latency<br>
-              • Dual microphone system<br>
-              • Tri-Mode connection: Bluetooth 5.3/2.4Ghz/Wired<br>
-              • 203g Ultra-lightweight construction<br>
+              • Tri-Mode connection:Bluetooth 5.3/2.4Ghz/Wired<br>
+              • 180g Ultra-light Design<br>
               • 2-in-1 Type C and USB A 2.4Ghz receiver<br>
-              • 40mm speaker drivers and 300mAh large battery
+              • 40mm speaker drivers and 600mAh large battery<br>
+              • Detachable noise-canceling microphone<br>
+              • Comfortable and breathable mesh eramuffs
             </div>
           </details>
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (10)</span></div>
@@ -957,12 +967,12 @@ this.style.transform='scale(1.05)';
           <details style="font-size:.73rem; color:var(--muted); cursor:pointer; margin:.5rem 0;">
             <summary style="cursor:pointer; color:var(--teal); font-weight:600;">Full Features</summary>
             <div style="margin-top:.5rem; line-height:1.6;">
-              • 20ms ultra-low latency<br>
-              • Dual microphone system<br>
-              • Tri-Mode connection: Bluetooth 5.3/2.4Ghz/Wired<br>
-              • 203g Ultra-lightweight construction<br>
+              • Tri-Mode connection:Bluetooth 5.3/2.4Ghz/Wired<br>
+              • 180g Ultra-light Design<br>
               • 2-in-1 Type C and USB A 2.4Ghz receiver<br>
-              • 40mm speaker drivers and 300mAh large battery
+              • 40mm speaker drivers and 600mAh large battery<br>
+              • Detachable noise-canceling microphone<br>
+              • Comfortable and breathable mesh eramuffs
             </div>
           </details>
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (10)</span></div>
@@ -1006,25 +1016,29 @@ this.style.transform='scale(1.05)';
         <div class="feat-ic">&#128666;</div>
         <span class="feat-hl">instant Delivery</span>
         <h3>Fast Local Delivery</h3>
-        <p>We deliver across all major Jordanian cities within 1–3 business days. Same-day delivery available in Amman.</p>
+        <p>توصيل فوري : نقوم بالتوصيل الفوري في نفس اليوم لكافة المدن الأردنية</p>
       </div>
       <div class="feat-card">
         <div class="feat-ic">&#128737;</div>
         <span class="feat-hl">Official Stock</span>
-        <h3>100% Authentic Products</h3>
-        <p>Every item sourced from official brand distributors. Full manufacturer warranty included.</p>
+        <h3>منتجات أصلية 100%</h3>
+        <p>المصدر: جميع المنتجات يتم توفيرها مباشرة من الموزعين الرسميين للعلامات التجارية<br>
+
+الضمان: كفالة مصنعية كاملة مشمولة مع المنتجات</p>
       </div>
       <div class="feat-card">
         <div class="feat-ic">&#127991;</div>
         <span class="feat-hl">Best Value</span>
-        <h3>Competitive JOD Pricing</h3>
-        <p>Some of the most competitive prices in Jordan with regular deals and exclusive discounts.</p>
+        <h3>افضل الاسعار بالاردن</h3>
+        <p>أفضل قيمة: يقدم المتجر بعضًا من أكثر الأسعار تنافسية في الأردن<br>
+
+العروض: توفير عروض دورية وخصومات حصرية للمشترين</p>
       </div>
       <div class="feat-card">
         <div class="feat-ic">&#127911;</div>
         <span class="feat-hl">Always Available</span>
-        <h3>Expert Gaming Support</h3>
-        <p>Our team of gamers helps you choose the right gear for your setup and playstyle.</p>
+        <h3>دعم خبراء الألعاب</h3>
+        <p>فريقنا من اللاعبين يساعدك في اختيار المعدات المناسبة لإعدادك ونمط اللعب الخاص بك </p>
       </div>
     </div>
   </div>
@@ -1505,6 +1519,285 @@ function sendOrder(method, items, total, delivery) {
   // Initialize cart
   updateCartCount();
   renderCart();
+
+  // ===== LANGUAGE TOGGLE =====
+  const translations = {
+    en: {
+      navHome: 'Home', navProducts: 'Products', navCategories: 'Categories',
+      navDelivery: 'Delivery', navContact: 'Contact',
+      mobShop: '🛒 Shop Now',
+      heroBadge: 'New Arrivals Available',
+      heroH1: 'Pc Shark<br><span class="grad">Store Jo.</span>',
+      heroInsta: 'Instagram Page',
+      heroP: 'Premium gaming peripherals and PC accessories, delivered fast across Jordan.',
+      heroShop: 'Shop Now →', heroBrowse: 'Browse Categories',
+      fb1title: 'Fast Local Delivery', fb1sub: 'Across all of Jordan',
+      fb2title: '100% Authentic', fb2sub: 'Official brand products',
+      fb3title: 'Best Prices', fb3sub: 'Competitive JOD pricing',
+      catTag: 'Browse by Category',
+      catH2: 'Everything You Need to <span class="grad">Level Up</span>',
+      catSub: 'From casual setups to pro esports rigs — we carry the full range of gaming gear',
+      catMouse: 'Mouse', catMouseP: 'Precision sensors & ergonomic designs',
+      catKeyboard: 'Keyboards', catKeyboardP: 'Mechanical, membrane & wireless',
+      catHeadset: 'Headsets', catHeadsetP: 'Surround sound & crystal-clear mic',
+      prodTag: 'Featured Products',
+      prodH2: 'Top Gear for <span class="grad">Top Players</span>',
+      prodSub: 'Hand-picked gaming peripherals trusted by pros and enthusiasts across Jordan',
+      fullFeatures: 'Full Features',
+      whyTag: 'Why PC Shark?',
+      whyH2: 'The Shark Advantage',
+      whySub: 'More than a store — we\'re your dedicated gaming partner in Jordan',
+      feat1hl: 'Instant Delivery', feat1h: 'Fast Local Delivery',
+      feat1p: 'Same-day delivery to all Jordanian cities',
+      feat2hl: 'Official Stock', feat2h: '100% Authentic Products',
+      feat2p: 'All products sourced directly from official brand distributors with full manufacturer warranty',
+      feat3hl: 'Best Value', feat3h: 'Best Prices in Jordan',
+      feat3p: 'Some of the most competitive prices in Jordan with exclusive periodic deals for buyers',
+      feat4hl: 'Always Available', feat4h: 'Gaming Expert Support',
+      feat4p: 'Our team of gamers helps you choose the right gear for your setup and playstyle',
+      delTag: 'Delivery & Shipping',
+      delH2: 'Delivered Fast <span class="grad">Across Jordan</span>',
+      delSub: 'Fast, reliable, and affordable shipping to your door — wherever you are in the Kingdom',
+      delIn: 'Inside Amman Delivery', delInSub: 'Instant Delivery', delInD: 'Fast delivery within Amman',
+      delOut: 'Outside Amman Delivery', delOutSub: 'Instant Delivery', delOutD: 'Fast delivery across Jordan',
+      delWA: '💬 Order via WhatsApp',
+      covH: 'Coverage Areas',
+      covP: 'We deliver to all governorates and major cities across Jordan:',
+      covNote: 'All orders are carefully packaged to ensure your gaming gear arrives in perfect condition. Fragile items receive extra protection at no added cost.',
+      ftBrandP: "Jordan's premier gaming peripherals store. We bring the best gaming gear to casual players, esports competitors, and PC enthusiasts across the Kingdom.",
+      ftLinks: 'Quick Links', ftHome: 'Home', ftProducts: 'Products',
+      ftCategories: 'Categories', ftDelivery: 'Delivery Info',
+      ftProds: 'Products', ftKeyboards: 'Keyboards', ftHeadsets: 'Gaming Headsets',
+      ftContact: 'Contact Us', ftCity: 'Amman, Jordan', ftWA: 'WhatsApp Us',
+      ftCopy: '© 2024 PC Shark Store. All rights reserved. Made in Jordan.',
+      ftSub: 'Fast delivery across the Hashemite Kingdom of Jordan',
+      cartTitle: 'Your Cart', cartEmpty: 'Your cart is empty',
+      cartTotal: 'Total:', checkoutBtn: 'Checkout',
+      payTitle: 'Select Payment Method',
+      payCash: 'Cash on Delivery', payCashSub: 'Pay when you receive',
+      payCliq: 'CLIQ', payCliqSub: 'Mobile payment',
+      delModal: 'Select Delivery Location',
+      insideAmman: 'Inside Amman 3 JD', outsideAmman: 'Outside Amman 5 JD',
+      langBtn: 'AR'
+    },
+    ar: {
+      navHome: 'الرئيسية', navProducts: 'المنتجات', navCategories: 'الفئات',
+      navDelivery: 'التوصيل', navContact: 'تواصل معنا',
+      mobShop: '🛒 تسوق الآن',
+      heroBadge: 'وصلت منتجات جديدة',
+      heroH1: 'Pc Shark<br><span class="grad">Store Jo.</span>',
+      heroInsta: 'صفحة إنستغرام',
+      heroP: 'أفضل ملحقات الألعاب والكمبيوتر، توصيل سريع لجميع أنحاء الأردن.',
+      heroShop: '← تسوق الآن', heroBrowse: 'تصفح الفئات',
+      fb1title: 'توصيل محلي سريع', fb1sub: 'لجميع أنحاء الأردن',
+      fb2title: '100% أصلي', fb2sub: 'منتجات العلامات الرسمية',
+      fb3title: 'أفضل الأسعار', fb3sub: 'أسعار تنافسية بالدينار',
+      catTag: 'تصفح حسب الفئة',
+      catH2: 'كل ما تحتاجه لـ<span class="grad">مستوى أعلى</span>',
+      catSub: 'من الإعدادات العادية إلى أجهزة الإيسبورت الاحترافية — نوفر كامل معدات الألعاب',
+      catMouse: 'ماوس', catMouseP: 'حساسات دقيقة وتصاميم مريحة',
+      catKeyboard: 'لوحات مفاتيح', catKeyboardP: 'ميكانيكية، غشائية وأيضاً لاسلكية',
+      catHeadset: 'سماعات', catHeadsetP: 'صوت محيطي وميكروفون واضح',
+      prodTag: 'منتجات مميزة',
+      prodH2: 'أفضل معدات لـ<span class="grad">أفضل لاعبين</span>',
+      prodSub: 'ملحقات ألعاب مختارة بعناية يثق بها المحترفون والمتحمسون في الأردن',
+      fullFeatures: 'المواصفات الكاملة',
+      whyTag: 'لماذا PC Shark؟',
+      whyH2: 'ميزة القرش',
+      whySub: 'أكثر من متجر — نحن شريكك في عالم الألعاب بالأردن',
+      feat1hl: 'توصيل فوري', feat1h: 'توصيل محلي سريع',
+      feat1p: 'توصيل فوري في نفس اليوم لكافة المدن الأردنية',
+      feat2hl: 'مخزون رسمي', feat2h: 'منتجات أصلية 100%',
+      feat2p: 'جميع المنتجات من الموزعين الرسميين مع كفالة مصنعية كاملة',
+      feat3hl: 'أفضل قيمة', feat3h: 'أفضل الأسعار في الأردن',
+      feat3p: 'أسعار تنافسية في الأردن مع عروض دورية وخصومات حصرية للمشترين',
+      feat4hl: 'دائماً متاح', feat4h: 'دعم خبراء الألعاب',
+      feat4p: 'فريقنا من اللاعبين يساعدك في اختيار المعدات المناسبة لإعدادك ونمط لعبك',
+      delTag: 'التوصيل والشحن',
+      delH2: 'توصيل سريع <span class="grad">لكل الأردن</span>',
+      delSub: 'شحن سريع وموثوق وبأسعار معقولة لبابك — أينما كنت في المملكة',
+      delIn: 'توصيل داخل عمان', delInSub: 'توصيل فوري', delInD: 'توصيل سريع داخل عمان',
+      delOut: 'توصيل خارج عمان', delOutSub: 'توصيل فوري', delOutD: 'توصيل سريع لكل الأردن',
+      delWA: '💬 اطلب عبر واتساب',
+      covH: 'مناطق التغطية',
+      covP: 'نوصّل لجميع محافظات ومدن الأردن الكبرى:',
+      covNote: 'جميع الطلبات تُعبّأ بعناية لضمان وصول معداتك بحالة مثالية. العناصر الهشة تحصل على حماية إضافية بدون تكلفة.',
+      ftBrandP: 'المتجر الأول في الأردن لملحقات الألعاب. نوفر أفضل معدات الألعاب للاعبين العاديين والمحترفين وعشاق الكمبيوتر في المملكة.',
+      ftLinks: 'روابط سريعة', ftHome: 'الرئيسية', ftProducts: 'المنتجات',
+      ftCategories: 'الفئات', ftDelivery: 'معلومات التوصيل',
+      ftProds: 'المنتجات', ftKeyboards: 'لوحات المفاتيح', ftHeadsets: 'سماعات الألعاب',
+      ftContact: 'تواصل معنا', ftCity: 'عمان، الأردن', ftWA: 'واتساب',
+      ftCopy: '© 2024 PC Shark Store. جميع الحقوق محفوظة. صنع في الأردن.',
+      ftSub: 'توصيل سريع لجميع أنحاء المملكة الأردنية الهاشمية',
+      cartTitle: 'سلة التسوق', cartEmpty: 'سلتك فارغة',
+      cartTotal: 'الإجمالي:', checkoutBtn: 'إتمام الطلب',
+      payTitle: 'اختر طريقة الدفع',
+      payCash: 'الدفع عند الاستلام', payCashSub: 'ادفع عند وصول طلبك',
+      payCliq: 'CLIQ', payCliqSub: 'دفع إلكتروني',
+      delModal: 'اختر منطقة التوصيل',
+      insideAmman: 'داخل عمان 3 دينار', outsideAmman: 'خارج عمان 5 دينار',
+      langBtn: 'EN'
+    }
+  };
+
+  let currentLang = 'en';
+
+  function toggleLanguage() {
+    currentLang = currentLang === 'en' ? 'ar' : 'en';
+    const t = translations[currentLang];
+    const html = document.documentElement;
+    const isAr = currentLang === 'ar';
+
+    html.setAttribute('lang', currentLang);
+    html.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+
+    document.getElementById('langToggle').textContent = t.langBtn;
+
+    // Navbar links
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const keys = ['navHome','navProducts','navCategories','navDelivery','navContact'];
+    navLinks.forEach((a, i) => { if (keys[i]) a.textContent = t[keys[i]]; });
+
+    // Mobile menu links
+    const mobLinks = document.querySelectorAll('#mobMenu a');
+    mobLinks.forEach((a, i) => {
+      if (i < 5 && keys[i]) a.textContent = t[keys[i]];
+      if (i === 5) a.textContent = t.mobShop;
+    });
+
+    // Hero
+    document.querySelector('.hero-h1').innerHTML = t.heroH1;
+    document.querySelector('.hero-p').textContent = t.heroP;
+    const heroBtn = document.querySelector('.hero-btns .btn-p');
+    const browseBtn = document.querySelector('.hero-btns .btn-o');
+    if (heroBtn) heroBtn.textContent = t.heroShop;
+    if (browseBtn) browseBtn.textContent = t.heroBrowse;
+
+    // Feature boxes
+    const fbs = document.querySelectorAll('.fb');
+    if (fbs[0]) { fbs[0].querySelector('strong').textContent = t.fb1title; fbs[0].querySelector('span').textContent = t.fb1sub; }
+    if (fbs[1]) { fbs[1].querySelector('strong').textContent = t.fb2title; fbs[1].querySelector('span').textContent = t.fb2sub; }
+    if (fbs[2]) { fbs[2].querySelector('strong').textContent = t.fb3title; fbs[2].querySelector('span').textContent = t.fb3sub; }
+
+    // Categories section
+    const catTag = document.querySelector('#categories .tag');
+    const catH2 = document.querySelector('#categories .sec-title');
+    const catSub = document.querySelector('#categories .sec-sub');
+    if (catTag) catTag.textContent = t.catTag;
+    if (catH2) catH2.innerHTML = t.catH2;
+    if (catSub) catSub.textContent = t.catSub;
+    const catCards = document.querySelectorAll('.cat-card');
+    const catData = [
+      [t.catMouse, t.catMouseP],
+      [t.catKeyboard, t.catKeyboardP],
+      [t.catHeadset, t.catHeadsetP]
+    ];
+    catCards.forEach((card, i) => {
+      if (catData[i]) {
+        card.querySelector('h3').textContent = catData[i][0];
+        card.querySelector('p').textContent = catData[i][1];
+      }
+    });
+
+    // Products section
+    const prodTag = document.querySelector('#products .tag');
+    const prodH2 = document.querySelector('#products .sec-title');
+    const prodSub = document.querySelector('#products .sec-sub');
+    if (prodTag) prodTag.textContent = t.prodTag;
+    if (prodH2) prodH2.innerHTML = t.prodH2;
+    if (prodSub) prodSub.textContent = t.prodSub;
+    document.querySelectorAll('.prod-body summary').forEach(s => s.textContent = t.fullFeatures);
+
+    // Why us
+    const whyTag = document.querySelector('#why .tag');
+    const whyH2 = document.querySelector('#why .sec-title');
+    const whySub = document.querySelector('#why .sec-sub');
+    if (whyTag) whyTag.textContent = t.whyTag;
+    if (whyH2) whyH2.textContent = t.whyH2;
+    if (whySub) whySub.textContent = t.whySub;
+    const featCards = document.querySelectorAll('.feat-card');
+    const featData = [
+      [t.feat1hl, t.feat1h, t.feat1p],
+      [t.feat2hl, t.feat2h, t.feat2p],
+      [t.feat3hl, t.feat3h, t.feat3p],
+      [t.feat4hl, t.feat4h, t.feat4p]
+    ];
+    featCards.forEach((card, i) => {
+      if (featData[i]) {
+        card.querySelector('.feat-hl').textContent = featData[i][0];
+        card.querySelector('h3').textContent = featData[i][1];
+        card.querySelector('p').textContent = featData[i][2];
+      }
+    });
+
+    // Delivery
+    const delTag = document.querySelector('#delivery .tag');
+    const delH2 = document.querySelector('#delivery .sec-title');
+    const delSub = document.querySelector('#delivery .sec-sub');
+    if (delTag) delTag.textContent = t.delTag;
+    if (delH2) delH2.innerHTML = t.delH2;
+    if (delSub) delSub.textContent = t.delSub;
+    const delCards = document.querySelectorAll('.del-card');
+    if (delCards[0]) {
+      delCards[0].querySelector('h3').textContent = t.delIn;
+      delCards[0].querySelector('.del-hd p').textContent = t.delInSub;
+      delCards[0].querySelector('.del-d').textContent = t.delInD;
+    }
+    if (delCards[1]) {
+      delCards[1].querySelector('h3').textContent = t.delOut;
+      delCards[1].querySelector('.del-hd p').textContent = t.delOutSub;
+      delCards[1].querySelector('.del-d').textContent = t.delOutD;
+    }
+    const waBtn = document.querySelector('.btn-wa');
+    if (waBtn) waBtn.textContent = t.delWA;
+    const covH = document.querySelector('.cov-hd h3');
+    const covP = document.querySelector('.cov-card > p');
+    const covNote = document.querySelector('.cov-note p');
+    if (covH) covH.textContent = t.covH;
+    if (covP) covP.textContent = t.covP;
+    if (covNote) covNote.textContent = t.covNote;
+
+    // Footer
+    const ftBrandP = document.querySelector('.ft-brand p');
+    if (ftBrandP) ftBrandP.textContent = t.ftBrandP;
+    const ftCols = document.querySelectorAll('.ft-col h4');
+    if (ftCols[0]) ftCols[0].textContent = t.ftLinks;
+    if (ftCols[1]) ftCols[1].textContent = t.ftProds;
+    if (ftCols[2]) ftCols[2].textContent = t.ftContact;
+    const ftLinksList = document.querySelectorAll('.ft-col:nth-child(2) ul a');
+    const ftLinksData = [t.ftHome, t.ftProducts, t.ftCategories, t.ftDelivery];
+    ftLinksList.forEach((a, i) => { if (ftLinksData[i]) a.textContent = ftLinksData[i]; });
+    const ftProdsList = document.querySelectorAll('.ft-col:nth-child(3) ul a');
+    if (ftProdsList[0]) ftProdsList[0].textContent = t.ftKeyboards;
+    if (ftProdsList[1]) ftProdsList[1].textContent = t.ftHeadsets;
+    const ftBotSpans = document.querySelectorAll('.ft-bot-in span');
+    if (ftBotSpans[0]) ftBotSpans[0].textContent = t.ftCopy;
+    if (ftBotSpans[1]) ftBotSpans[1].textContent = t.ftSub;
+
+    // Cart sidebar
+    const cartHeader = document.querySelector('.cart-header h2');
+    if (cartHeader) cartHeader.textContent = t.cartTitle;
+    const cartEmptyP = document.querySelector('.cart-empty p');
+    if (cartEmptyP) cartEmptyP.textContent = t.cartEmpty;
+    const cartTotalLabel = document.querySelector('.cart-total span:first-child');
+    if (cartTotalLabel) cartTotalLabel.textContent = t.cartTotal;
+    const checkoutBtnEl = document.getElementById('checkoutBtn');
+    if (checkoutBtnEl) checkoutBtnEl.textContent = t.checkoutBtn;
+
+    // Payment modal
+    const payH2 = document.querySelector('.payment-header h2');
+    if (payH2) payH2.textContent = t.payTitle;
+    const payBtns = document.querySelectorAll('.payment-text');
+    if (payBtns[0]) {
+      payBtns[0].querySelector('strong').textContent = t.payCash;
+      payBtns[0].querySelector('span').textContent = t.payCashSub;
+    }
+    if (payBtns[1]) {
+      payBtns[1].querySelector('strong').textContent = t.payCliq;
+      payBtns[1].querySelector('span').textContent = t.payCliqSub;
+    }
+  }
+
 </script>
 </body>
 </html>

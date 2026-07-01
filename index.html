@@ -431,6 +431,23 @@
     @media(max-width:768px)  { .prods-grid { grid-template-columns:repeat(2,1fr); } }
     @media(max-width:480px)  { .prods-grid { grid-template-columns:1fr; } }
 
+    .brand-filters {
+      display:flex; flex-wrap:wrap; justify-content:center; gap:.7rem;
+      margin:0 auto 1.8rem; max-width:760px;
+    }
+    .brand-filter-btn {
+      border:1px solid rgba(58,173,169,.25); background:rgba(255,255,255,.03);
+      color:var(--text); border-radius:999px; padding:.6rem 1rem;
+      font-family:'Rajdhani',sans-serif; font-weight:700; letter-spacing:.05em;
+      text-transform:uppercase; cursor:pointer; transition:var(--tr);
+    }
+    .brand-filter-btn:hover,
+    .brand-filter-btn.active {
+      background:var(--teal); color:var(--bg); border-color:var(--teal);
+      box-shadow:0 8px 22px rgba(58,173,169,.2);
+    }
+    .prod-card.is-hidden { display:none; }
+
     /* ===== WHY US ===== */
     #why { background:var(--bg-alt); }
     .feats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.4rem; }
@@ -696,6 +713,11 @@ this.style.transform='scale(1.05)';
       <span class="tag">Featured Products</span>
       <h2 class="sec-title">Top Gear for <span class="grad">Top Players</span></h2>
       <p class="sec-sub">Hand-picked gaming peripherals trusted by pros and enthusiasts across Jordan</p>
+    </div>
+    <div class="brand-filters" aria-label="Filter products by brand">
+      <button class="brand-filter-btn active" data-brand="all">All Brands</button>
+      <button class="brand-filter-btn" data-brand="Attack Shark">Attack Shark</button>
+      <button class="brand-filter-btn" data-brand="Logitech">Logitech</button>
     </div>
     <div class="prods-grid">
 
@@ -1000,8 +1022,41 @@ this.style.transform='scale(1.05)';
         </div>
       </div>
 
+      <div class="prod-card">
+        <div class="prod-img">
+          <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sba2577e174204ab5b3a5d4e352dbed17Z.jpg" alt="ATTACK SHARK CM02 eSport Gaming Mousepad" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="prod-body">
+          <span class="pcat">Anti-Slip Stickers</span>
+          <h3 class="pname">ATTACK SHARK X11 Anti-Slip Stickers</h3>
+          <p class="pspec">Anti-Slip Stickers</p>
+          <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (5)</span></div>
+          <div class="pfooter">
+            <span class="pprice">1.99 JOD</span>
+            <button onclick="addToCart('ATTACK SHARK X11 Anti-Slip Stickers', 1.99)" class="btn-add">&#43; Add</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img">
+          <img src="https://attackshark.ca/cdn/shop/files/1_8c879c56-6641-45c4-af42-19ae09d018f7.png?v=1716269769&width=2048" alt="ATTACK SHARK CM02 eSport Gaming Mousepad" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="prod-body">
+          <span class="pcat">Anti-Slip Stickers</span>
+          <h3 class="pname">ATTACK SHARK X11 Anti-Slip Stickers</h3>
+          <p class="pspec">Anti-Slip Stickers</p>
+          <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (5)</span></div>
+          <div class="pfooter">
+            <span class="pprice">1.99 JOD</span>
+            <button onclick="addToCart('ATTACK SHARK X11 Anti-Slip Stickers', 1.99)" class="btn-add">&#43; Add</button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
+  
 </section>
 
 <!-- ============================= WHY CHOOSE US ============================= -->
@@ -1521,6 +1576,33 @@ function sendOrder(method, items, total, delivery) {
   updateCartCount();
   renderCart();
 
+  // Brand filtering
+  const brandFilterButtons = document.querySelectorAll('.brand-filter-btn');
+  const productCards = document.querySelectorAll('.prod-card');
+
+  productCards.forEach(card => {
+    const name = card.querySelector('.pname')?.textContent || '';
+    const brand = /logitech/i.test(name) ? 'Logitech' : 'Attack Shark';
+    card.dataset.brand = brand;
+  });
+
+  function applyBrandFilter(selectedBrand = 'all') {
+    productCards.forEach(card => {
+      const matches = selectedBrand === 'all' || card.dataset.brand === selectedBrand;
+      card.classList.toggle('is-hidden', !matches);
+    });
+  }
+
+  brandFilterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      brandFilterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      applyBrandFilter(button.dataset.brand);
+    });
+  });
+
+  applyBrandFilter();
+
   // ===== LANGUAGE TOGGLE =====
   const translations = {
     en: {
@@ -1544,6 +1626,7 @@ function sendOrder(method, items, total, delivery) {
       prodTag: 'Featured Products',
       prodH2: 'Top Gear for <span class="grad">Top Players</span>',
       prodSub: 'Hand-picked gaming peripherals trusted by pros and enthusiasts across Jordan',
+      brandAll: 'All Brands', brandAttack: 'Attack Shark', brandLogitech: 'Logitech',
       fullFeatures: 'Full Features',
       whyTag: 'Why PC Shark?',
       whyH2: 'The Shark Advantage',
@@ -1602,6 +1685,7 @@ function sendOrder(method, items, total, delivery) {
       prodTag: 'منتجات مميزة',
       prodH2: 'أفضل معدات لـ<span class="grad">أفضل لاعبين</span>',
       prodSub: 'ملحقات ألعاب مختارة بعناية يثق بها المحترفون والمتحمسون في الأردن',
+      brandAll: 'كل العلامات', brandAttack: 'Attack Shark', brandLogitech: 'Logitech',
       fullFeatures: 'المواصفات الكاملة',
       whyTag: 'لماذا PC Shark؟',
       whyH2: 'ميزة القرش',
@@ -1707,6 +1791,10 @@ function sendOrder(method, items, total, delivery) {
     if (prodTag) prodTag.textContent = t.prodTag;
     if (prodH2) prodH2.innerHTML = t.prodH2;
     if (prodSub) prodSub.textContent = t.prodSub;
+    const brandButtons = document.querySelectorAll('.brand-filter-btn');
+    if (brandButtons[0]) brandButtons[0].textContent = t.brandAll;
+    if (brandButtons[1]) brandButtons[1].textContent = t.brandAttack;
+    if (brandButtons[2]) brandButtons[2].textContent = t.brandLogitech;
     document.querySelectorAll('.prod-body summary').forEach(s => s.textContent = t.fullFeatures);
 
     // Why us

@@ -1288,7 +1288,7 @@ this.style.transform='scale(1.05)';
     `).join('');
 
     const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-    cartTotal.textContent = total + ' JOD';
+    cartTotal.textContent = total.toFixed(2) + ' JOD';
     checkoutBtn.disabled = false;
   }
 

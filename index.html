@@ -415,6 +415,42 @@
       background:rgba(239,68,68,.82); color:#fff;
       padding:.18rem .5rem; border-radius:.4rem;
     }
+    .pdisc.sale {
+      background: linear-gradient(135deg, #ff5f5f, #d92c2c);
+      box-shadow: 0 0 20px rgba(239,68,68,.3);
+    }
+    .prod-card.out-of-stock {
+      background: #1e2632;
+      border-color: #394454;
+      color: #9ca3af;
+      filter: grayscale(.35);
+    }
+    .prod-card.out-of-stock .prod-img {
+      opacity: .9;
+    }
+    .prod-card.out-of-stock .pdisc.sale {
+      background: #6b7280;
+      color: #f8fafc;
+      box-shadow: none;
+    }
+    .prod-card.out-of-stock .pcat,
+    .prod-card.out-of-stock .pname,
+    .prod-card.out-of-stock .pspec,
+    .prod-card.out-of-stock .prat,
+    .prod-card.out-of-stock .pprice,
+    .prod-card.out-of-stock .pold {
+      color: #c0c8d3;
+    }
+    .prod-card.out-of-stock .btn-add {
+      background: rgba(255,255,255,.08);
+      color: #9ca3af;
+      border-color: rgba(156,163,175,.4);
+      cursor: not-allowed;
+    }
+    .prod-card.out-of-stock .btn-add:hover {
+      background: rgba(255,255,255,.08);
+      transform: none;
+    }
     .prod-body { display:flex; flex-direction:column; flex:1; padding:.95rem; gap:.55rem; }
     .pcat { font-size:.68rem; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--teal); }
     .pname { font-family:'Rajdhani',sans-serif; font-size:1.02rem; font-weight:700; color:var(--text); line-height:1.3; }
@@ -604,7 +640,7 @@
 
  <button onclick="window.open('https://www.instagram.com/pcshark.jo/', '_blank')"
 style="
-background: linear-gradient(45deg, #1bacb1, #09ebdf);
+background: linear-gradient(45deg, #3aada9, #3aada9);
 color: rgb(0, 0, 0);
 border: none;
 border-radius: 8px;
@@ -631,7 +667,7 @@ this.style.transform='scale(0.95)';
 onmouseup="
 this.style.transform='scale(1.05)';
 ">
-      Instagram Page
+      instagram Page
 </button>
 
 <style>
@@ -724,6 +760,7 @@ this.style.transform='scale(1.05)';
       <div class="prod-card">
         <div class="prod-img">
           <img src="https://gameakjo.com/cdn/shop/files/1_13_2.webp?v=1779105860&width=2048" alt="ATTACK SHARK R68 HE Carbon Fiber Keyboard" style="width:100%;height:100%;object-fit:cover;">
+          <span class="pdisc sale">-27%</span>
         </div>
         <div class="prod-body">
           <span class="pcat">Keyboards</span>
@@ -747,6 +784,7 @@ this.style.transform='scale(1.05)';
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (12)</span></div>
           <div class="pfooter">
             <span class="pprice">64.99 JOD</span>
+            <span class="pold">79.99 JOD</span>
             <button onclick="addToCart('ATTACK SHARK R68 HE Carbon Fiber Keyboard', 64.99)" class="btn-add">&#43; Add</button>
           </div>
         </div>
@@ -755,6 +793,7 @@ this.style.transform='scale(1.05)';
       <div class="prod-card">
         <div class="prod-img">
           <img src="https://os-jo.com/image/cache/catalog/products/Accessories/Mouse/G502-HERO/G502-HERO-650x400.jpg" alt="LOGITECH G502 HERO" style="width:100%;height:100%;object-fit:cover;">
+          <span class="pdisc sale">-22%</span>
         </div>
         <div class="prod-body">
           <span class="pcat">Gaming Mouse</span>
@@ -775,6 +814,7 @@ this.style.transform='scale(1.05)';
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>4.9 (32)</span></div>
           <div class="pfooter">
             <span class="pprice">34.99 JOD</span>
+            <span class="pold">42.99 JOD</span>
             <button onclick="addToCart('LOGITECH G502 HERO', 34.99)" class="btn-add">&#43; Add</button>
           </div>
         </div>
@@ -783,6 +823,7 @@ this.style.transform='scale(1.05)';
       <div class="prod-card">
         <div class="prod-img">
           <img src="https://gameakjo.com/cdn/shop/files/0.1_1.webp?v=1758966111&width=800" alt="ATTACK SHARK X68 HE" style="width:100%;height:100%;object-fit:cover;">
+          <span class="pdisc sale">-20%</span>
         </div>
         <div class="prod-body">
           <span class="pcat">Keyboards</span>
@@ -803,6 +844,7 @@ this.style.transform='scale(1.05)';
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (8)</span></div>
           <div class="pfooter">
             <span class="pprice">39.99 JOD</span>
+            <span class="pold">44.99 JOD</span>
             <button onclick="addToCart('ATTACK SHARK X68 HE', 39.99)" class="btn-add">&#43; Add</button>
           </div>
         </div>
@@ -811,6 +853,7 @@ this.style.transform='scale(1.05)';
       <div class="prod-card">
         <div class="prod-img">
           <img src="https://attackshark.co.uk/cdn/shop/files/08_124c2ed9-35a7-4eef-8a06-53b081fb3625.jpg?v=1752039873" alt="ATTACK SHARK X68 HE" style="width:100%;height:100%;object-fit:cover;">
+          <span class="pdisc sale">-20%</span>
         </div>
         <div class="prod-body">
           <span class="pcat">Keyboards</span>
@@ -831,6 +874,7 @@ this.style.transform='scale(1.05)';
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (8)</span></div>
           <div class="pfooter">
             <span class="pprice">39.99 JOD</span>
+            <span class="pold">44.99 JOD</span>
             <button onclick="addToCart('ATTACK SHARK X68 HE', 39.99)" class="btn-add">&#43; Add</button>
           </div>
         </div>
@@ -839,6 +883,7 @@ this.style.transform='scale(1.05)';
       <div class="prod-card">
         <div class="prod-img">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBARleLtHz5rfnelHmmGDfJ4XAbNnQPFJ255dpPIO7hyoYmKJn36tyiaTs&s=10" alt="ATTACK SHARK X11 Wireless Gaming Mouse" style="width:100%;height:100%;object-fit:cover;">
+          <span class="pdisc sale">-15%</span>
         </div>
         <div class="prod-body">
           <span class="pcat">Gaming Mouse</span>
@@ -862,6 +907,7 @@ this.style.transform='scale(1.05)';
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (15)</span></div>
           <div class="pfooter">
             <span class="pprice">19.99 JOD</span>
+            <span class="pold">24.99 JOD</span>
             <button onclick="addToCart('ATTACK SHARK X11 Wireless Gaming Mouse', 19.99)" class="btn-add">&#43; Add</button>
           </div>
         </div>
@@ -870,6 +916,7 @@ this.style.transform='scale(1.05)';
       <div class="prod-card">
         <div class="prod-img">
           <img src="https://mks.blr1.cdn.digitaloceanspaces.com/uploads/2025/04/ATTACK-SHARK-X11-WHITE-77-png.webp" alt="ATTACK SHARK X11 Wireless Gaming Mouse" style="width:100%;height:100%;object-fit:cover;">
+          <span class="pdisc sale">-15%</span>
         </div>
         <div class="prod-body">
           <span class="pcat">Gaming Mouse</span>
@@ -893,6 +940,7 @@ this.style.transform='scale(1.05)';
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (15)</span></div>
           <div class="pfooter">
             <span class="pprice">19.99 JOD</span>
+            <span class="pold">24.99 JOD</span>
             <button onclick="addToCart('ATTACK SHARK X11 Wireless Gaming Mouse', 19.99)" class="btn-add">&#43; Add</button>
           </div>
         </div>
@@ -901,7 +949,8 @@ this.style.transform='scale(1.05)';
       <div class="prod-card">
         <div class="prod-img">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAjIqMYw6Fgq3uxm5DW4xaSBxkFjJkPbHnb7buBqEXew&s=10" alt="ATTACK SHARK L80PRO Wireless Gaming Headset" style="width:100%;height:100%;object-fit:cover;">
-        </div>
+          <span class="pdisc sale">-17%</span>
+        </div> 
         <div class="prod-body">
           <span class="pcat">Gaming Headset</span>
           <h3 class="pname">ATTACK SHARK L80PRO</h3>
@@ -920,6 +969,7 @@ this.style.transform='scale(1.05)';
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (10)</span></div>
           <div class="pfooter">
             <span class="pprice">29.99 JOD</span>
+            <span class="pold">35.99 JOD</span>
             <button onclick="addToCart('ATTACK SHARK L80PRO Wireless Gaming Headset', 29.99)" class="btn-add">&#43; Add</button>
           </div>
         </div>
@@ -928,6 +978,7 @@ this.style.transform='scale(1.05)';
       <div class="prod-card">
         <div class="prod-img">
           <img src="https://attackshark.com/cdn/shop/files/1_29f176f1-5f7c-4855-94a6-7936bd120277.jpg?crop=center&height=1200&v=1758855754&width=1200" alt="ATTACK SHARK L80PRO Wireless Gaming Headset" style="width:100%;height:100%;object-fit:cover;">
+          <span class="pdisc sale">-17%</span>
         </div>
         <div class="prod-body">
           <span class="pcat">Gaming Headset</span>
@@ -947,6 +998,7 @@ this.style.transform='scale(1.05)';
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (10)</span></div>
           <div class="pfooter">
             <span class="pprice">29.99 JOD</span>
+            <span class="pold">35.99 JOD</span>
             <button onclick="addToCart('ATTACK SHARK L80PRO Wireless Gaming Headset', 29.99)" class="btn-add">&#43; Add</button>
           </div>
         </div>
@@ -955,7 +1007,8 @@ this.style.transform='scale(1.05)';
       <div class="prod-card">
         <div class="prod-img">
           <img src="https://m.media-amazon.com/images/I/71WlrIr++hL.jpg" alt="ATTACK SHARK L80 Wireless Gaming Headset" style="width:100%;height:100%;object-fit:cover;">
-        </div>
+          <span class="pdisc sale">-10%</span>
+        </div> 
         <div class="prod-body">
           <span class="pcat">Gaming Headset</span>
           <h3 class="pname">ATTACK SHARK L80</h3>
@@ -974,6 +1027,7 @@ this.style.transform='scale(1.05)';
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (10)</span></div>
           <div class="pfooter">
             <span class="pprice">24.99 JOD</span>
+            <span class="pold">29.99 JOD</span>
             <button onclick="addToCart('ATTACK SHARK L80 Wireless Gaming Headset', 24.99)" class="btn-add">&#43; Add</button>
           </div>
         </div>
@@ -982,6 +1036,7 @@ this.style.transform='scale(1.05)';
       <div class="prod-card">
         <div class="prod-img">
           <img src="https://gameakjo.com/cdn/shop/files/1_122e4429-c452-4f76-a34b-2bfbbf05b56d.webp?v=1771441972&width=2048" alt="ATTACK SHARK L80 Wireless Gaming Headset" style="width:100%;height:100%;object-fit:cover;">
+          <span class="pdisc sale">-10%</span>
         </div>
         <div class="prod-body">
           <span class="pcat">Gaming Headset</span>
@@ -1001,14 +1056,16 @@ this.style.transform='scale(1.05)';
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (10)</span></div>
           <div class="pfooter">
             <span class="pprice">24.99 JOD</span>
+            <span class="pold">29.99 JOD</span>
             <button onclick="addToCart('ATTACK SHARK L80 Wireless Gaming Headset', 24.99)" class="btn-add">&#43; Add</button>
           </div>
         </div>
       </div>
 
-      <div class="prod-card">
+      <div class="prod-card out-of-stock">
         <div class="prod-img">
           <img src="https://pro4card.com/wp-content/uploads/2026/01/ATTACK-SHARK-CM02-eSport-Gaming-Mousepad-2.webp" alt="ATTACK SHARK CM02 eSport Gaming Mousepad" style="width:100%;height:100%;object-fit:cover;">
+          <span class="pdisc sale">Out Of Stock</span>
         </div>
         <div class="prod-body">
           <span class="pcat">Gaming Mousepad</span>
@@ -1017,7 +1074,9 @@ this.style.transform='scale(1.05)';
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (5)</span></div>
           <div class="pfooter">
             <span class="pprice">9.99 JOD</span>
-            <button onclick="addToCart('ATTACK SHARK CM02 eSport Gaming Mousepad', 9.99)" class="btn-add">&#43; Add</button>
+            <span class="pold">12.99 JOD</span>
+            <button class="btn-add" disabled>&#43; Add</button>
+            <!-- <button onclick="addToCart('ATTACK SHARK CM02 eSport Gaming Mousepad', 9.99)" class="btn-add">&#43; Add</button> -->
           </div>
         </div>
       </div>
@@ -1025,6 +1084,7 @@ this.style.transform='scale(1.05)';
       <div class="prod-card">
         <div class="prod-img">
           <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sba2577e174204ab5b3a5d4e352dbed17Z.jpg" alt="ATTACK SHARK CM02 eSport Gaming Mousepad" style="width:100%;height:100%;object-fit:cover;">
+          <span class="pdisc sale">-10%</span>
         </div>
         <div class="prod-body">
           <span class="pcat">Anti-Slip Stickers</span>
@@ -1033,6 +1093,7 @@ this.style.transform='scale(1.05)';
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (5)</span></div>
           <div class="pfooter">
             <span class="pprice">1.99 JOD</span>
+            <span class="pold">2.99 JOD</span>
             <button onclick="addToCart('ATTACK SHARK X11 Anti-Slip Stickers', 1.99)" class="btn-add">&#43; Add</button>
           </div>
         </div>
@@ -1041,6 +1102,7 @@ this.style.transform='scale(1.05)';
       <div class="prod-card">
         <div class="prod-img">
           <img src="https://attackshark.ca/cdn/shop/files/1_8c879c56-6641-45c4-af42-19ae09d018f7.png?v=1716269769&width=2048" alt="ATTACK SHARK CM02 eSport Gaming Mousepad" style="width:100%;height:100%;object-fit:cover;">
+          <span class="pdisc sale">-10%</span>
         </div>
         <div class="prod-body">
           <span class="pcat">Anti-Slip Stickers</span>
@@ -1049,6 +1111,7 @@ this.style.transform='scale(1.05)';
           <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (5)</span></div>
           <div class="pfooter">
             <span class="pprice">1.99 JOD</span>
+            <span class="pold">2.99 JOD</span>
             <button onclick="addToCart('ATTACK SHARK X11 Anti-Slip Stickers', 1.99)" class="btn-add">&#43; Add</button>
           </div>
         </div>

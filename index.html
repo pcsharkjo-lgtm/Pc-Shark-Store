@@ -484,6 +484,45 @@
     }
     .prod-card.is-hidden { display:none; }
 
+    body.modal-open { overflow:hidden; }
+    .product-modal-overlay {
+      position:fixed; inset:0; z-index:1200; background:rgba(3,6,12,.78);
+      display:flex; align-items:center; justify-content:center; padding:1rem;
+    }
+    .product-modal-overlay[hidden] { display:none !important; }
+    .product-modal {
+      width:min(980px, 100%); max-height:92vh; overflow:auto;
+      background:var(--card); border:1px solid var(--border); border-radius:1.2rem;
+      box-shadow:0 24px 70px rgba(0,0,0,.45); position:relative;
+    }
+    .product-modal-close {
+      position:absolute; top:1rem; right:1rem; z-index:2; border:none; background:rgba(0,0,0,.45);
+      color:#fff; width:40px; height:40px; border-radius:50%; cursor:pointer; font-size:1.25rem;
+    }
+    .product-modal-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:0; }
+    .product-modal-gallery { padding:1.2rem; background:linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); }
+    .product-modal-main-image {
+      width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:1rem; border:1px solid var(--border);
+      background:#0f1726;
+    }
+    .product-modal-thumbs { display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem; margin-top:.75rem; }
+    .product-modal-thumb {
+      border:1px solid var(--border); border-radius:.7rem; overflow:hidden; cursor:pointer; background:#0f1726; padding:0;
+    }
+    .product-modal-thumb img { width:100%; height:72px; object-fit:cover; display:block; }
+    .product-modal-thumb.active { border-color:var(--teal); box-shadow:0 0 0 1px rgba(58,173,169,.4); }
+    .product-modal-body { padding:1.4rem 1.4rem 1.5rem; display:flex; flex-direction:column; gap:1rem; }
+    .product-modal-body .pcat { font-size:.72rem; }
+    .product-modal-body .pname { font-size:1.38rem; }
+    .product-modal-body .pspec { font-size:.9rem; line-height:1.7; }
+    .product-modal-price-row { display:flex; flex-wrap:wrap; align-items:center; gap:.6rem; }
+    .product-modal-price { font-size:1.45rem; font-weight:700; color:var(--teal); }
+    .product-modal-old { color:var(--muted); text-decoration:line-through; }
+    .product-modal-features { display:grid; gap:.45rem; padding-left:1rem; color:var(--muted); font-size:.9rem; }
+    .product-modal-actions { display:flex; flex-wrap:wrap; gap:.7rem; margin-top:auto; }
+    .product-modal-actions .btn-add, .product-modal-actions .btn-o { padding:.7rem 1rem; }
+    @media(max-width:800px){ .product-modal-grid{grid-template-columns:1fr;} .product-modal-gallery{padding-bottom:.8rem;} }
+
     /* ===== WHY US ===== */
     #why { background:var(--bg-alt); }
     .feats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.4rem; }
@@ -757,9 +796,73 @@ this.style.transform='scale(1.05)';
     </div>
     <div class="prods-grid">
 
-      <div class="prod-card">
+      <div class="prod-card" data-images="https://os-jo.com/image/cache/catalog/products/Accessories/Mouse/G502-HERO/G502-HERO-650x400.jpg,https://www.maxgaming.com/img/bilder/artiklar/14757.jpg?m=1758139408&w=720,https://igeekjo.com/cdn/shop/products/g502-h-1-1200x1200.jpg?v=1664643005&width=1024">
         <div class="prod-img">
-          <img src="https://gameakjo.com/cdn/shop/files/1_13_2.webp?v=1779105860&width=2048" alt="ATTACK SHARK R68 HE Carbon Fiber Keyboard" style="width:100%;height:100%;object-fit:cover;">
+          <img src="https://os-jo.com/image/cache/catalog/products/Accessories/Mouse/G502-HERO/G502-HERO-650x400.jpg" alt="LOGITECH G502 HERO" style="width:100%;height:100%;object-fit:cover;">
+          <span class="pdisc sale">-22%</span>
+        </div>
+        <div class="prod-body">
+          <span class="pcat">Gaming Mouse</span>
+          <h3 class="pname">LOGITECH G502 HERO</h3>
+          <p class="pspec">Fully Programmable 11 Buttons • Hero 25K Sensor • RGB</p>
+          <details style="font-size:.73rem; color:var(--muted); cursor:pointer; margin:.5rem 0;">
+            <summary style="cursor:pointer; color:var(--teal); font-weight:600;">Full Features</summary>
+            <div style="margin-top:.5rem; line-height:1.6;">
+              • Fully Programmable 11 Buttons with HERO 25K Sensor<br>
+              • RGB Lighting with Custom Profiles<br>
+              • High Performance Gaming Mouse<br>
+              • Comes with Leather Cord<br>
+              • Adjustable Weight System<br>
+              • On-board Memory for DPI Settings<br>
+              • Tunable for Precision and Speed
+            </div>
+          </details>
+          <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>4.9 (32)</span></div>
+          <div class="pfooter">
+            <span class="pprice">34.99 JOD</span>
+            <span class="pold">42.99 JOD</span>
+            <button onclick="addToCart('LOGITECH G502 HERO', 34.99)" class="btn-add">&#43; Add</button>
+          </div>
+        </div>
+      </div>
+
+<div class="prod-card" data-images="https://attackshark.com/cdn/shop/files/1_3_8056d57d-9fb5-4ef7-8d26-368865787dd4.png?v=1775813853&width=600,https://pcboost.com.ua/content/images/15/536x536l50nn0/klaviatura-mahnitna-attack-shark-r68-he-ice-white-forged-carbon-47160709717678.png,https://m.media-amazon.com/images/I/71VmGRPsvbL.jpg">
+        <div class="prod-img"> 
+          <img src="https://attackshark.com/cdn/shop/files/1_3_8056d57d-9fb5-4ef7-8d26-368865787dd4.png?v=1775813853&width=600" alt="ATTACK SHARK R68 HE Carbon Fiber Keyboard" style="width:100%;height:100%;object-fit:cover;">
+          <span class="pdisc sale">-27%</span>
+        </div>
+        <div class="prod-body">
+          <span class="pcat">Keyboards</span>
+          <h3 class="pname">ATTACK SHARK R68 HE</h3>
+          <p class="pspec">Carbon Fiber • 8000Hz • Rapid Trigger</p>
+          <details style="font-size:.73rem; color:var(--muted); cursor:pointer; margin:.5rem 0;">
+            <summary style="cursor:pointer; color:var(--teal); font-weight:600;">Full Features</summary>
+            <div style="margin-top:.5rem; line-height:1.6;">
+              • Carbon Fiber Composite Top Case & CNC Aluminum Side Accents<br>
+              • 8000Hz Polling Rate, 0.08ms Ultra-Low Latency<br>
+              • 0.005mm Rapid Trigger & Zero Deadzone Precision<br>
+              • 6-Layer Sound Dampening Stack<br>
+              • Exclusive Forged Carbon Fiber Keycaps<br>
+              • ATTACK SHARK Custom Magnetic Switches<br>
+              • FR4 Positioning Plate (Metallic Spray Finish)<br>
+              • Full RGB Backlighting & Dual-Zone Side-Strips<br>
+              • Hot-Swappable & Multi-Switch Compatibility<br>
+              • Dual Driver Support
+            </div>
+          </details>
+          <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 (12)</span></div>
+          <div class="pfooter">
+            <span class="pprice">64.99 JOD</span>
+            <span class="pold">79.99 JOD</span>
+            <button onclick="addToCart('ATTACK SHARK R68 HE Carbon Fiber Keyboard', 64.99)" class="btn-add">&#43; Add</button>
+          </div>
+        </div>
+      </div>
+ 
+
+     <div class="prod-card" data-images="https://gameakjo.com/cdn/shop/files/1_6_1.webp?v=1779105438&width=2048,https://www.hitech.mn/_next/image?url=https%3A%2F%2Fhitech-bc-main.s3.ap-southeast-1.amazonaws.com%2F1df2d80d-75cb-4211-afed-07b002391994.jpg&w=3840&q=75,https://i.ebayimg.com/images/g/1tYAAeSwv2hp8DBZ/s-l1200.png">
+        <div class="prod-img"> 
+          <img src="https://gameakjo.com/cdn/shop/files/1_6_1.webp?v=1779105438&width=2048" alt="ATTACK SHARK R68 HE Carbon Fiber Keyboard" style="width:100%;height:100%;object-fit:cover;">
           <span class="pdisc sale">-27%</span>
         </div>
         <div class="prod-body">
@@ -790,37 +893,8 @@ this.style.transform='scale(1.05)';
         </div>
       </div>
 
-      <div class="prod-card">
-        <div class="prod-img">
-          <img src="https://os-jo.com/image/cache/catalog/products/Accessories/Mouse/G502-HERO/G502-HERO-650x400.jpg" alt="LOGITECH G502 HERO" style="width:100%;height:100%;object-fit:cover;">
-          <span class="pdisc sale">-22%</span>
-        </div>
-        <div class="prod-body">
-          <span class="pcat">Gaming Mouse</span>
-          <h3 class="pname">LOGITECH G502 HERO</h3>
-          <p class="pspec">Fully Programmable 11 Buttons • Hero 25K Sensor • RGB</p>
-          <details style="font-size:.73rem; color:var(--muted); cursor:pointer; margin:.5rem 0;">
-            <summary style="cursor:pointer; color:var(--teal); font-weight:600;">Full Features</summary>
-            <div style="margin-top:.5rem; line-height:1.6;">
-              • Fully Programmable 11 Buttons with HERO 25K Sensor<br>
-              • RGB Lighting with Custom Profiles<br>
-              • High Performance Gaming Mouse<br>
-              • Comes with Leather Cord<br>
-              • Adjustable Weight System<br>
-              • On-board Memory for DPI Settings<br>
-              • Tunable for Precision and Speed
-            </div>
-          </details>
-          <div class="prat">&#9733;&#9733;&#9733;&#9733;&#9733; <span>4.9 (32)</span></div>
-          <div class="pfooter">
-            <span class="pprice">34.99 JOD</span>
-            <span class="pold">42.99 JOD</span>
-            <button onclick="addToCart('LOGITECH G502 HERO', 34.99)" class="btn-add">&#43; Add</button>
-          </div>
-        </div>
-      </div>
 
-      <div class="prod-card">
+      <div class="prod-card" class="prod-card" data-images="https://gameakjo.com/cdn/shop/files/0.1_1.webp?v=1758966111&width=800,https://m.media-amazon.com/images/I/81HUSIhwNYL.jpg,https://attackshark.co.uk/cdn/shop/files/1_19.jpg?v=1754914632">
         <div class="prod-img">
           <img src="https://gameakjo.com/cdn/shop/files/0.1_1.webp?v=1758966111&width=800" alt="ATTACK SHARK X68 HE" style="width:100%;height:100%;object-fit:cover;">
           <span class="pdisc sale">-20%</span>
@@ -850,7 +924,7 @@ this.style.transform='scale(1.05)';
         </div>
       </div>
 
-      <div class="prod-card">
+      <div class="prod-card" data-images="https://attackshark.co.uk/cdn/shop/files/08_124c2ed9-35a7-4eef-8a06-53b081fb3625.jpg?v=1752039873,https://m.media-amazon.com/images/I/81Am4-VXJJL.jpg,https://attackshark.com/cdn/shop/files/5_9_fa5d4e16-a769-4a78-9f9d-75ff08f6c47c.jpg?v=1754568250&width=600">
         <div class="prod-img">
           <img src="https://attackshark.co.uk/cdn/shop/files/08_124c2ed9-35a7-4eef-8a06-53b081fb3625.jpg?v=1752039873" alt="ATTACK SHARK X68 HE" style="width:100%;height:100%;object-fit:cover;">
           <span class="pdisc sale">-20%</span>
@@ -880,7 +954,7 @@ this.style.transform='scale(1.05)';
         </div>
       </div>
 
-      <div class="prod-card">
+      <div class="prod-card" data-images="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBARleLtHz5rfnelHmmGDfJ4XAbNnQPFJ255dpPIO7hyoYmKJn36tyiaTs&s=10,https://i5.walmartimages.com/asr/d2e56246-29ce-4e82-ae09-2a85fe7d9611.f02fd66ef1096e4ea9fc5c8d39bb682d.png?odnHeight=768&odnWidth=768&odnBg=FFFFFF,https://numberonestore.net/image/cache/catalog/PRODUCT/COMPUTER%20ACCESSOIRES/GAMING%20MOUSE/ATTACK%20SHARK/X11%20BLACK/attack-shark-x11-59g-wireless-gaming-mouse-with-magnetic-rgb-charging-dock-bt-24g-wired-22000-dpi-5-programmable-buttons-black%20(1)-550x550w.jpg"> 
         <div class="prod-img">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBARleLtHz5rfnelHmmGDfJ4XAbNnQPFJ255dpPIO7hyoYmKJn36tyiaTs&s=10" alt="ATTACK SHARK X11 Wireless Gaming Mouse" style="width:100%;height:100%;object-fit:cover;">
           <span class="pdisc sale">-15%</span>
@@ -913,7 +987,7 @@ this.style.transform='scale(1.05)';
         </div>
       </div>
 
-      <div class="prod-card">
+      <div class="prod-card" data-images="https://mks.blr1.cdn.digitaloceanspaces.com/uploads/2025/04/ATTACK-SHARK-X11-WHITE-77-png.webp,https://atcsjo.com/public/uploads/all/Wxg5UctBACQZcbFjn2RzGRKaYMoYzlT8Dc0k6HTZ.webp,https://www.creatus.com.bd/image/cache/catalog/Attack-Shark/Untitled-design-3-27-500x500.png.webp">
         <div class="prod-img">
           <img src="https://mks.blr1.cdn.digitaloceanspaces.com/uploads/2025/04/ATTACK-SHARK-X11-WHITE-77-png.webp" alt="ATTACK SHARK X11 Wireless Gaming Mouse" style="width:100%;height:100%;object-fit:cover;">
           <span class="pdisc sale">-15%</span>
@@ -1282,6 +1356,32 @@ this.style.transform='scale(1.05)';
   </div>
 </div>
 
+<div class="product-modal-overlay" id="productModalOverlay" hidden>
+  <div class="product-modal" role="dialog" aria-modal="true" aria-label="Product details">
+    <button class="product-modal-close" id="productModalClose" type="button" aria-label="Close">×</button>
+    <div class="product-modal-grid">
+      <div class="product-modal-gallery">
+        <img class="product-modal-main-image" id="productModalMainImage" src="" alt="">
+        <div class="product-modal-thumbs" id="productModalThumbs"></div>
+      </div>
+      <div class="product-modal-body">
+        <span class="pcat" id="productModalCategory"></span>
+        <h3 class="pname" id="productModalTitle"></h3>
+        <p class="pspec" id="productModalDescription"></p>
+        <div class="product-modal-price-row">
+          <span class="product-modal-price" id="productModalPrice"></span>
+          <span class="product-modal-old" id="productModalOldPrice"></span>
+        </div>
+        <ul class="product-modal-features" id="productModalFeatures"></ul>
+        <div class="product-modal-actions">
+          <button class="btn-add" id="productModalAddBtn" type="button">+ Add</button>
+          <a href="#products" class="btn btn-o" id="productModalShopBtn">Back to Shop</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="cart-overlay" id="cartOverlay"></div>
 <div class="cart-sidebar" id="cartSidebar">
   <div class="cart-header">
@@ -1410,6 +1510,9 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     cartSidebar.classList.remove('open');
     cartOverlay.classList.remove('open');
+    if (!productModalOverlay.hidden) {
+      closeProductModal();
+    }
   }
 });
 
@@ -1639,14 +1742,141 @@ function sendOrder(method, items, total, delivery) {
   updateCartCount();
   renderCart();
 
-  // Brand filtering
+  // Product details modal + brand filtering
   const brandFilterButtons = document.querySelectorAll('.brand-filter-btn');
   const productCards = document.querySelectorAll('.prod-card');
+  const productModalOverlay = document.getElementById('productModalOverlay');
+  const productModalClose = document.getElementById('productModalClose');
+  const productModalMainImage = document.getElementById('productModalMainImage');
+  const productModalThumbs = document.getElementById('productModalThumbs');
+  const productModalCategory = document.getElementById('productModalCategory');
+  const productModalTitle = document.getElementById('productModalTitle');
+  const productModalDescription = document.getElementById('productModalDescription');
+  const productModalPrice = document.getElementById('productModalPrice');
+  const productModalOldPrice = document.getElementById('productModalOldPrice');
+  const productModalFeatures = document.getElementById('productModalFeatures');
+  const productModalAddBtn = document.getElementById('productModalAddBtn');
+  const productModalShopBtn = document.getElementById('productModalShopBtn');
+
+  function buildGalleryForCard(card) {
+    const title = card.querySelector('.pname')?.textContent.trim() || 'Product';
+    const mainImage = card.querySelector('.prod-img img')?.getAttribute('src') || '';
+    const existingImages = (card.dataset.images || '').split(',').map(src => src.trim()).filter(Boolean);
+    const palette = ['#3aada9', '#1b5e87', '#25d366'];
+
+    const makePlaceholder = (color, label) => 'data:image/svg+xml;utf8,' + encodeURIComponent(`
+      <svg xmlns="http://www.w3.org/2000/svg" width="800" height="600">
+        <rect width="800" height="600" fill="#0f1726"/>
+        <rect x="70" y="70" width="660" height="460" rx="24" fill="${color}22" stroke="${color}" stroke-width="6"/>
+        <circle cx="400" cy="250" r="110" fill="none" stroke="${color}" stroke-width="12"/>
+        <path d="M285 380h230" stroke="${color}" stroke-width="12" stroke-linecap="round"/>
+        <text x="400" y="500" text-anchor="middle" font-family="Arial" font-size="36" fill="#e8f4f4">${label}</text>
+      </svg>
+    `);
+
+    const gallery = [];
+    existingImages.forEach((image, index) => { if (image) gallery[index] = image; });
+
+    if (!gallery[0] && mainImage) gallery[0] = mainImage;
+    if (!gallery[0]) return [];
+
+    return gallery.slice(0, 3);
+  }
+
+  function closeProductModal() {
+    productModalOverlay.hidden = true;
+    productModalOverlay.style.display = 'none';
+    document.body.classList.remove('modal-open');
+  }
+
+  function openProductModal(card) {
+    const title = card.querySelector('.pname')?.textContent.trim() || '';
+    const category = card.querySelector('.pcat')?.textContent.trim() || '';
+    const priceText = card.querySelector('.pprice')?.textContent.trim() || '';
+    const oldPriceText = card.querySelector('.pold')?.textContent.trim() || '';
+    const description = card.querySelector('.pspec')?.textContent.trim() || '';
+    const detailsBox = card.querySelector('details > div');
+    const features = detailsBox
+      ? detailsBox.textContent.split('\n').map(line => line.trim()).filter(Boolean).map(line => line.replace(/^•\s*/, ''))
+      : [];
+    const gallery = buildGalleryForCard(card);
+
+    productModalCategory.textContent = category;
+    productModalTitle.textContent = title;
+    productModalDescription.textContent = description;
+    productModalPrice.textContent = priceText;
+    productModalOldPrice.textContent = oldPriceText;
+    productModalFeatures.innerHTML = features.length
+      ? features.map(item => `<li>${item}</li>`).join('')
+      : '<li>Premium gaming gear with authentic build quality.</li>';
+
+    productModalMainImage.src = gallery[0] || '';
+    productModalMainImage.alt = title;
+    productModalThumbs.innerHTML = gallery.length > 1 ? gallery.map((image, index) => `
+      <button class="product-modal-thumb ${index === 0 ? 'active' : ''}" type="button" data-image="${image}" aria-label="Show image ${index + 1}">
+        <img src="${image}" alt="${title} preview ${index + 1}">
+      </button>
+    `).join('') : '';
+
+    productModalThumbs.querySelectorAll('.product-modal-thumb').forEach(button => {
+      button.addEventListener('click', () => {
+        productModalMainImage.src = button.dataset.image;
+        productModalThumbs.querySelectorAll('.product-modal-thumb').forEach(item => item.classList.remove('active'));
+        button.classList.add('active');
+      });
+    });
+
+    productModalAddBtn.onclick = () => {
+      addToCart(title, parseFloat(priceText));
+      closeProductModal();
+    };
+    productModalShopBtn.onclick = (event) => {
+      event.preventDefault();
+      closeProductModal();
+      document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+    };
+
+    productModalOverlay.hidden = false;
+    productModalOverlay.style.display = 'flex';
+    document.body.classList.add('modal-open');
+  }
+
+  productModalClose.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    closeProductModal();
+  });
+  productModalOverlay.addEventListener('click', (event) => {
+    if (event.target === productModalOverlay) closeProductModal();
+  });
 
   productCards.forEach(card => {
     const name = card.querySelector('.pname')?.textContent || '';
     const brand = /logitech/i.test(name) ? 'Logitech' : 'Attack Shark';
     card.dataset.brand = brand;
+    const isOutOfStock = card.classList.contains('out-of-stock');
+    if (!card.dataset.images || card.dataset.images.split(',').filter(Boolean).length < 3) {
+      card.dataset.images = buildGalleryForCard(card).join(',');
+    }
+
+    card.addEventListener('click', (event) => {
+      if (event.target.closest('.btn-add, details, summary')) return;
+      if (isOutOfStock) {
+        event.preventDefault();
+        event.stopPropagation();
+        return;
+      }
+      openProductModal(card);
+    });
+
+    card.querySelectorAll('.btn-add').forEach(button => {
+      button.addEventListener('click', (event) => {
+        event.stopPropagation();
+        if (isOutOfStock) {
+          event.preventDefault();
+        }
+      });
+    });
   });
 
   function applyBrandFilter(selectedBrand = 'all') {
